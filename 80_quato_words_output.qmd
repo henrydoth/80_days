@@ -25,7 +25,10 @@ editor: source
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
-source(here::here("R", "run_all.R"))
+source(here::here("R", "packages.R"))
+source(here::here("R", "00_setup.R"))
+source(here::here("R", "01_load_clean_text.R"))
+source(here::here("R", "02_tidy_analysis.R"))
 
 ```
 
