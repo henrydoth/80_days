@@ -29,6 +29,7 @@ source(here::here("R", "packages.R"))
 source(here::here("R", "00_setup.R"))
 source(here::here("R", "01_load_clean_text.R"))
 source(here::here("R", "02_tidy_analysis.R"))
+source(here::here("R", "03_sentiment_analysis.R"))
 
 ```
 
@@ -61,6 +62,13 @@ TP Hồ Chí Minh: `r formatted_datetime`
 :::
 Sa sút trí tuệ (SSTT) là một trong những vấn đề y tế được xã hội quan tâm, đặc biệt .
 
+# MÃ LỆNH
+```{r}
+#| echo: false
+source(here::here("R", "02_tidy_analysis.R"))
+```
+
+
 # TỔNG QUANG TÀI LIỆU
 
 ## Tổng quan around the world 80 days
@@ -72,8 +80,35 @@ Sa sút trí tuệ (SSTT) là một trong những vấn đề y tế được x�
 
 
 # KẾT QUẢ NGHIÊN CỨU
+## 📋 Bảng tần suất từ
+### Bảng tần suất từ
 
-Có
+```{r}
+bang_top_words
+```
+##### `r nhan_xet_bang_top_words`
+
+### Biểu đồ tần suất từ
+
+```{r}
+bieu_do_top_words
+
+```
+##### `r nhan_xet_bieu_do_top_words`
+
+## 🧠 Phân tích cảm xúc trong văn bản
+
+### 📋 Bảng từ mang sắc thái cảm xúc
+
+```{r}
+bang_cam_xuc  
+```
+##### `r nhan_xet_bang_cx`
+### Biểu đồ từ mang sắc thái cảm 
+```{r}
+bieu_do_cam_xuc
+```
+##### `r nhan_xet_bieu_do_cx`
 
 # BÀN LUẬN
 
@@ -82,8 +117,10 @@ BÀN LUẬN
 :::
 
 ## Đặc điểm mẫu của nghiên cứu
-### Đặc điểm chung nhân khẩu học
+`r ban_luan_top_words
 
+## Bàn luận cảm xúc
+`r ban_luan_cx`
 
 ### Đặc điểm theo Tuổi
 

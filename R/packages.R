@@ -1,12 +1,16 @@
+# 📦 Nạp packages cần thiết
 pacman::p_load(
   dplyr, tidyr, forcats, haven,
   ggplot2, lubridate, glue, flextable,
   officer, officedown, jpeg, png, grid,
   tidyverse, magrittr,  
   purrr, RColorBrewer, emo, janitor,
-  effectsize, patchwork, scales, stringr
+  effectsize, patchwork, scales, stringr,
+  tidytext  # ✅ Thêm dòng này
+ 
 )
 
+# ✨ Thiết lập mặc định cho flextable
 set_flextable_defaults(
   font.family = "Times New Roman",
   font.size = 11,
@@ -20,6 +24,7 @@ set_flextable_defaults(
   na_str = "-"
 )
 
+# 🎨 Thiết lập theme ggplot
 theme_set(
   theme_minimal(base_family = "Times New Roman") +
     theme(
@@ -33,23 +38,28 @@ theme_set(
     )
 )
 
+# 🖼️ Thiết lập chunk mặc định cho knitr
 knitr::opts_chunk$set(
   fig.align = "center",
   out.width = "100%",
   fig.asp = 0.618
 )
 
+# 🔢 Định dạng số thập phân kiểu Việt
 options(OutDec = ",")
 
+# 🎨 Palette mặc định cho ggplot2
 scale_color_discrete <- function(...) scale_color_brewer(palette = "Set1", ...)
 scale_fill_discrete  <- function(...) scale_fill_brewer(palette = "Pastel2", ...)
 
+# 📋 Hàm tạo flextable định dạng tiếng Việt
 ft_vn <- function(df) {
   flextable(df) %>%
     colformat_num(decimal.mark = ",", big.mark = ".", na_str = "-") %>%
     autofit()
 }
 
+# 🔵 Hàm đổi chữ sang xanh (cho in đậm, đẹp)
 text_blue <- function(text) {
   ftext(
     text,
@@ -60,7 +70,7 @@ text_blue <- function(text) {
   )
 }
 
-# 👉 Hàm kiểm tra và nạp lại packages nếu cần
+# ✅ Hàm kiểm tra và nạp lại packages nếu cần
 check_and_load <- function() {
   if (!exists("%>%") || !exists("theme_set", mode = "function")) {
     message("📦 Nạp lại thư viện từ packages.R...")
@@ -68,7 +78,7 @@ check_and_load <- function() {
   }
 }
 
-# 👉 Hàm kiểm tra và nạp packages + dữ liệu nếu thiếu
+# ✅ Hàm kiểm tra và nạp packages + dữ liệu nếu thiếu
 check_and_load_all <- function() {
   if (!exists("%>%")) {
     message("📦 Thiếu pipe (%>%) → nạp lại packages.R...")
