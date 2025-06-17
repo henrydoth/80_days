@@ -1,7 +1,8 @@
-# 02_tidy_analysis.R 📊
-# Phân tích tần suất từ trong văn bản Jules Verne
+options(repos = c(CRAN = "https://cloud.r-project.org"))
 
-check_and_load()  # 📦 Kiểm tra & nạp packages
+source(here::here("R", "packages.R"))
+check_and_load()
+
 
 # 📂 Đọc dữ liệu văn bản sạch
 text_lines <- readr::read_csv(here::here("data", "around_the_world_clean.csv"), show_col_types = FALSE)

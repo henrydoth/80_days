@@ -1,6 +1,6 @@
 ---
 title: "Around the world 80-days"
-author: "SSTT "
+author: "Henry Do "
 format:
     docx:
       toc: false
@@ -60,7 +60,43 @@ TP Hồ Chí Minh: `r formatted_datetime`
 ::: {custom-style="CAN GIUA DAM 14 ONE"}
 ĐẶT VẤN ĐỀ
 :::
-Sa sút trí tuệ (SSTT) là một trong những vấn đề y tế được xã hội quan tâm, đặc biệt .
+
+Trong thời đại số hóa hiện nay, việc ứng dụng các công cụ phân tích dữ liệu và ngôn ngữ tự nhiên để khám phá chiều sâu của tác phẩm văn học đang mở ra nhiều hướng tiếp cận mới mẻ. *Around the World in Eighty Days* (Vòng quanh thế giới trong 80 ngày) của Jules Verne là một kiệt tác văn học phiêu lưu nổi bật của thế kỷ XIX, phản ánh khát vọng chinh phục thời gian, không gian và những giới hạn của con người bằng khoa học và quyết tâm.
+
+Trước đây, việc phân tích các tác phẩm văn học chủ yếu dựa trên cảm nhận chủ quan hoặc lý luận văn học truyền thống. Tuy nhiên, ngày nay, với sự phát triển của R, `tidytext`, và các công cụ khai phá văn bản (text mining), chúng ta có thể lượng hóa các yếu tố như: tần suất từ, sắc thái cảm xúc, chủ đề tiềm ẩn, tương quan giữa các nhân vật, giúp hiểu sâu hơn về cấu trúc và thông điệp tác phẩm. Không dừng lại ở phân tích tĩnh, các ứng dụng tương tác như **Shiny** cũng cho phép người đọc, người học và nhà nghiên cứu dễ dàng khám phá văn bản theo cách chủ động, sinh động và mang tính cá nhân hóa.
+
+Chính trong bối cảnh đó, nghiên cứu này được thực hiện nhằm kết hợp giữa văn học, khoa học dữ liệu và công nghệ thông tin, mở rộng khả năng khai phá tri thức từ các văn bản văn học kinh điển, đồng thời tạo tiền đề để phát triển công cụ hỗ trợ giảng dạy – học tập – nghiên cứu văn học số tại Việt Nam.
+
+---
+
+## MỤC TIÊU NGHIÊN CỨU
+
+### Mục tiêu tổng quát
+
+Ứng dụng R và các thư viện phân tích văn bản hiện đại để khai thác, lượng hóa và trực quan hóa các đặc điểm nội dung của tác phẩm *Around the World in Eighty Days* dưới góc nhìn khoa học dữ liệu và văn học số.
+
+### Mục tiêu cụ thể
+
+- Phân tích tần suất xuất hiện của các từ khóa chính, nhằm xác định các nhân vật trung tâm, chủ đề cốt lõi và yếu tố kỹ thuật – không gian – thời gian trong văn bản.
+- Phân tích sắc thái cảm xúc (sentiment analysis) của tác phẩm dựa trên từ điển `bing` để xác định giọng văn tổng thể và cảm xúc chi phối nội dung.
+- Khai thác các đặc điểm ngôn ngữ học định lượng để từ đó đánh giá phong cách viết của Jules Verne so với các tác giả đương thời.
+- Đề xuất các hướng phân tích nâng cao như: phân tích theo chương, theo tuyến nhân vật, mô hình hóa chủ đề (topic modeling), biểu đồ hành trình,…
+- Đối chiếu kết quả phân tích định lượng với các nhận định văn học truyền thống để làm rõ giá trị nội dung và nghệ thuật của tác phẩm.
+
+### Mục tiêu nâng cao và ứng dụng mở rộng
+
+#### Ứng dụng Machine Learning
+
+- Áp dụng các mô hình học máy đơn giản như phân loại chủ đề (topic classification), phân cụm (clustering) hoặc nhận diện cảm xúc nâng cao bằng `tidymodels` hoặc `caret`.
+- Từ đó thử nghiệm việc phân nhóm chương truyện hoặc nhân vật dựa trên đặc điểm từ vựng, giúp soi chiếu các mạch nội dung tiềm ẩn.
+
+#### Xây dựng ứng dụng Shiny phục vụ nghiên cứu và giảng dạy văn học
+
+- Tạo giao diện tương tác cho phép người dùng tải văn bản, chọn chương, xem tần suất từ, biểu đồ cảm xúc, bản đồ hành trình.
+- Cung cấp các biểu đồ trực quan động với `plotly`, hỗ trợ lọc theo nhân vật, từ khóa, cảm xúc,…
+- Cho phép xuất báo cáo Word/PDF từ phân tích hiện hành thông qua tích hợp với `Quarto` hoặc `officer`.
+- Hướng tới việc xây dựng công cụ mở giúp học sinh – sinh viên – giáo viên khám phá tác phẩm văn học một cách trực quan, sinh động và logic.
+
 
 # MÃ LỆNH
 ```{r}
@@ -69,13 +105,62 @@ source(here::here("R", "02_tidy_analysis.R"))
 ```
 
 
-# TỔNG QUANG TÀI LIỆU
+# TỔNG QUAN TÀI LIỆU
 
-## Tổng quan around the world 80 days
+## Văn học cổ điển và nhu cầu tiếp cận số hoá
 
-# ĐỐI TƯỢNG VÀ PHƯƠNG PHÁP NGHIÊN CỨU
+Văn học cổ điển thế kỷ XIX, trong đó có tác phẩm *Around the World in Eighty Days* của Jules Verne, đã và đang là đối tượng nghiên cứu của nhiều chuyên ngành như văn học, lịch sử, xã hội học và gần đây là khoa học dữ liệu. Jules Verne được xem là một trong những người tiên phong của thể loại văn học khoa học viễn tưởng, với lối hành văn rõ ràng, định hướng hành động và chứa đựng các yếu tố kỹ thuật, xã hội trong bối cảnh công nghiệp hóa [@evans2013jules].
 
-## Dân số mục tiêu:
+Sự phát triển của các công cụ khai phá văn bản hiện đại như R và Python, đặc biệt là các gói phân tích dữ liệu như `tidytext` trong R, đã mở ra khả năng mới trong việc phân tích định lượng các tác phẩm văn học. Điều này cho phép xác định các từ khóa trung tâm, đặc điểm cấu trúc, giọng văn, cũng như sắc thái cảm xúc của tác phẩm một cách khách quan hơn [@silge2017text].
+
+## Khai phá dữ liệu văn học bằng R và tidytext
+
+Gói `tidytext` do Silge và Robinson phát triển, cho phép chuyển đổi văn bản sang dạng bảng dữ liệu (tidy format), qua đó dễ dàng phân tích tần suất từ, sắc thái cảm xúc, phân phối từ theo thời gian hoặc chương, và thực hiện phân cụm chủ đề [@silge2017text]. Trong nhiều nghiên cứu trước đó, phương pháp này đã được áp dụng thành công để khám phá cấu trúc nội dung trong các tác phẩm kinh điển như *Pride and Prejudice*, *Moby Dick*, và các diễn văn chính trị [@grimmer2013text].
+
+Phân tích cảm xúc bằng từ điển như bing hoặc NRC cũng giúp xác định rõ sắc thái chủ đạo của văn bản. Các nghiên cứu cho thấy tiểu thuyết phiêu lưu thường mang giọng điệu tích cực, thể hiện lý tưởng khám phá và tinh thần vượt nghịch cảnh [@reagan2016emotional].
+
+## Ứng dụng machine learning trong nghiên cứu văn học
+
+Trong những năm gần đây, việc tích hợp machine learning vào nghiên cứu văn học đã tạo ra một bước tiến mới. Các mô hình như topic modeling (LDA), sentiment classification, và clustering đã được ứng dụng để phát hiện chủ đề tiềm ẩn, so sánh văn phong giữa các tác giả, và phân tích sự thay đổi phong cách theo thời gian [@jockers2014text; @underwood2016life]. Evans và Aceves cũng đề xuất ứng dụng học máy để phân tích cảm xúc trên quy mô lớn nhằm phát hiện biến động văn hoá qua ngôn ngữ [@evans2012machine].
+
+Trong bối cảnh này, *Around the World in Eighty Days* là một ví dụ lý tưởng để thử nghiệm các mô hình ML như phân loại chương theo tông cảm xúc, phát hiện sự chuyển dịch tâm lý nhân vật qua từng phần, hay nhận diện mẫu hình kể chuyện qua các yếu tố từ vựng và thời gian.
+
+## Ứng dụng tương tác với Shiny App
+
+Bên cạnh phân tích dữ liệu, việc phát triển các ứng dụng trực quan tương tác bằng Shiny (RStudio) là xu hướng quan trọng trong giáo dục và phổ biến khoa học. Các ứng dụng Shiny có thể giúp người dùng không chuyên tương tác trực tiếp với văn bản, chọn chương, hiển thị từ khóa, biểu đồ cảm xúc, bản đồ hành trình hoặc thực hiện tra cứu cụm từ. Shiny mang lại khả năng phổ cập dữ liệu văn học theo hướng cá nhân hoá và trực quan hóa, giúp tiếp cận sâu hơn vào nội dung tác phẩm mà không cần kiến thức lập trình [@jockers2013macroanalysis].
+
+
+# Đối tượng và phương pháp nghiên cứu
+
+## Đối tượng nghiên cứu
+
+Đối tượng nghiên cứu trong đề tài này là nội dung toàn văn tác phẩm *Around the World in Eighty Days* của Jules Verne. Văn bản tiếng Anh gốc được tải từ nguồn Gutenberg Project (phiên bản điện tử công khai) và được xử lý dưới dạng văn bản thuần (plain text) để tiến hành phân tích định lượng và trực quan hóa.
+
+## Phạm vi nghiên cứu
+
+- Ngôn ngữ: bản gốc tiếng Anh của tác phẩm.
+- Hình thức phân tích: text mining (khai phá văn bản), tập trung vào tần suất từ, từ khóa theo nhân vật, phân tích cảm xúc và mô hình chủ đề.
+- Không đi sâu vào phân tích so sánh với các bản dịch hoặc bản chuyển thể khác.
+
+## Thiết kế nghiên cứu
+
+Nghiên cứu áp dụng mô hình phân tích văn học định lượng bằng các bước sau:
+
+1. **Tiền xử lý văn bản**: bao gồm loại bỏ từ dừng, chuyển chữ thường, tách từ, gắn nhãn từ loại, và chuẩn hóa từ.
+2. **Phân tích tần suất và từ khóa**: sử dụng `tidytext` để xác định các từ khóa xuất hiện với tần suất cao nhằm làm rõ các chủ đề và nhân vật trung tâm.
+3. **Phân tích cảm xúc (Sentiment Analysis)**: áp dụng từ điển `bing` để xác định tỷ lệ từ tích cực và tiêu cực trong văn bản.
+4. **Mô hình hóa chủ đề (Topic Modeling)**: dự kiến áp dụng Latent Dirichlet Allocation (LDA) để phân nhóm chủ đề ẩn trong nội dung.
+5. **Ứng dụng trực quan hóa bằng Shiny**: xây dựng ứng dụng Shiny giúp người dùng tương tác với các biểu đồ, từ khóa, và cảm xúc trong văn bản.
+
+## Công cụ và phần mềm
+
+- **Ngôn ngữ**: R
+- **Gói R sử dụng**: `tidytext`, `dplyr`, `ggplot2`, `tm`, `topicmodels`, `shiny`
+- **Trình bày kết quả**: Quarto + officedown, xuất ra định dạng Word
+
+## Phương pháp trích dẫn
+
+Tài liệu được trích dẫn theo chuẩn **AMA11**, đi kèm với định dạng `.bib` có chứa trường `abstract` đã dịch sang tiếng Việt.
 
 
 
@@ -112,21 +197,35 @@ bieu_do_cam_xuc
 
 # BÀN LUẬN
 
-::: {custom-style="Heading 1"}
-BÀN LUẬN
-:::
+Trong nghiên cứu này, chúng tôi đã tiến hành phân tích tần suất từ khóa trong văn bản Around the World in 80 Days nhằm làm rõ những yếu tố nội dung cốt lõi của tiểu thuyết. Kết quả cho thấy từ xuất hiện nhiều nhất là “fogg” với 552 lần, tiếp theo là “passepartout” (381 lần), “fix” (232 lần), “phileas” (215 lần) và “aouda” (121 lần). Những từ này đại diện cho các nhân vật chính và phụ, phản ánh cấu trúc xoay quanh hành trình phiêu lưu của họ. Sự lặp lại nhiều lần các từ này cho thấy Jules Verne đã xây dựng cốt truyện dựa trên các tương tác giữa nhân vật và bối cảnh không gian – thời gian.
+
+Việc sử dụng các công cụ phân tích văn bản định lượng như tidytext trong R là một hướng tiếp cận hiện đại để tiếp cận các tác phẩm văn học cổ điển, đặc biệt là trong việc phát hiện từ khóa, xác định chủ đề và giọng điệu văn bản [@silge2017tidytext]. Phân tích tần suất từ không chỉ giúp người đọc nhanh chóng nhận diện được các điểm nhấn trong nội dung, mà còn hỗ trợ việc so sánh giữa các tác phẩm hay phiên bản khác nhau của cùng một tác phẩm [@jockers2014text].
+
+Ngoài ra, một đặc điểm nổi bật là sự xuất hiện đồng thời của các từ mang yếu tố hành động như “train”, “time”, “master”, cho thấy nội dung thiên về sự dịch chuyển và các yếu tố kỹ thuật. Điều này phù hợp với đặc điểm tiểu thuyết phiêu lưu của Verne, vốn được xem là người tiên phong của thể loại văn học khoa học viễn tưởng thế kỷ XIX [@evans2013verne]. Bên cạnh đó, từ “sir” và “hundred” xuất hiện với tần suất cao có thể phản ánh ngữ cảnh văn hóa thời kỳ ấy, khi phép lịch sự Anh ngữ và các con số định lượng được sử dụng phổ biến trong mô tả thời gian và quãng đường.
+
+Theo nghiên cứu của Underwood và Sellers, việc kết hợp các phương pháp phân tích văn bản định lượng và định tính sẽ mang lại cái nhìn sâu sắc hơn về văn học hiện đại và cổ điển [@underwood2016quantitative]. Trong bối cảnh này, việc sử dụng công cụ phân tích tần suất từ không chỉ mang tính mô tả mà còn giúp soi chiếu phong cách viết và tư tưởng tác giả qua cách dùng từ.
+
+Tuy nhiên, hạn chế của phương pháp tần suất đơn thuần là không xét đến ngữ cảnh hoặc nghĩa bóng. Vì vậy, trong các bước tiếp theo, chúng tôi đề xuất bổ sung các kỹ thuật như phân tích cảm xúc (sentiment analysis) và mô hình hóa chủ đề (topic modeling) để có cái nhìn toàn diện hơn về văn bản [@grimmer2013text].
+
+Tổng kết lại, phân tích tần suất từ đã cho thấy cấu trúc nhân vật, chủ đề và phong cách viết đặc trưng của Jules Verne trong Around the World in 80 Days. Đây là bước đầu tiên quan trọng để triển khai các phân tích chuyên sâu hơn về thể loại, phong cách và tư tưởng văn học trong tác phẩm kinh điển này.x
 
 ## Đặc điểm mẫu của nghiên cứu
 `r ban_luan_top_words
 
 ## Bàn luận cảm xúc
 `r ban_luan_cx`
+Kết quả phân tích cảm xúc với từ điển bing cho thấy rằng phần lớn từ ngữ trong tác phẩm Around the World in 80 Days mang sắc thái tích cực. Cụ thể, khoảng 64,2% từ cảm xúc được phân loại là tích cực, trong khi chỉ có 35,8% là tiêu cực. Tỷ lệ này cho thấy sự chi phối rõ rệt của giọng văn lạc quan, thể hiện tinh thần khám phá, quyết tâm và khát vọng chinh phục thử thách của nhân vật chính [@bing2007opinion].
 
-### Đặc điểm theo Tuổi
+Đây là đặc điểm nổi bật của các tiểu thuyết phiêu lưu cuối thế kỷ XIX, nơi mà nhà văn thường khắc họa con người vượt lên nghịch cảnh bằng ý chí và lòng tin [@moretti2005graphs]. Jules Verne, với tư cách là một trong những người tiên phong của thể loại văn học khoa học giả tưởng và phiêu lưu, đã sử dụng ngôn ngữ tích cực như một công cụ để truyền cảm hứng cho độc giả thời đại công nghiệp hóa [@evans2012machine].
 
-::: {custom-style="chu_xanh"}
-hello world
-:::
+So sánh với các tác phẩm cùng thời, Around the World in 80 Days cho thấy ít yếu tố u ám, khác với giọng văn mang màu sắc triết lý hoặc hoài nghi trong tiểu thuyết của Dostoevsky hay Dickens. Điều này cũng phản ánh khác biệt văn hóa giữa các vùng văn học – trong khi văn học Pháp thiên về lý tưởng và khám phá, văn học Nga và Anh lại thường thiên về phản ánh xã hội [@jockers2013macroanalysis].
+
+Từ góc độ công cụ phân tích, tidytext và bing mang lại khả năng định lượng hóa cảm xúc hiệu quả, nhưng vẫn tồn tại giới hạn. Ví dụ, nhiều từ có thể mang sắc thái trung tính hoặc đa nghĩa tuỳ theo ngữ cảnh, điều mà mô hình từ điển đơn giản như bing chưa thể hiện đầy đủ [@liu2012sentiment]. Tuy vậy, với các văn bản có giọng văn rõ ràng như tác phẩm này, phương pháp vẫn cho kết quả đáng tin cậy.
+
+Một nghiên cứu tương tự trên văn học cổ điển tiếng Anh cũng cho thấy các tác phẩm phiêu lưu thường có tỷ lệ từ tích cực cao hơn, phản ánh chức năng “giải trí – giáo dục” mà dòng văn học này hướng tới [@reagan2016emotional]. Từ đó, có thể nhận định rằng kết quả của nghiên cứu này phù hợp với xu hướng chung và đóng góp thêm bằng chứng định lượng về đặc điểm phong cách văn học của Jules Verne.
+
+Tóm lại, phân tích cảm xúc cho thấy Around the World in 80 Days là một tác phẩm tích cực, lạc quan và đầy cảm hứng. Điều này không chỉ giúp người đọc hiện đại hiểu hơn về phong cách văn học cổ điển, mà còn mở ra hướng ứng dụng mới cho phân tích văn học bằng công cụ số trong nghiên cứu ngôn ngữ và văn hóa.
+
 
 
 
