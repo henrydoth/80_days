@@ -97,3 +97,44 @@ lessCopy code80_days/
 - Viết thêm `03_sentiment_analysis.R` để phân tích cảm xúc (dùng lexicon như `bing`, `afinn`).
 - Thêm biểu đồ thời gian nếu bạn chia văn bản theo chương.
 - Tạo giao diện Shiny nếu muốn tương tác (sẽ làm sau giai đoạn Quarto ổn định).
+
+## 🧠 Ôn tập thao tác R & Git hôm nay (`80_days`)
+
+### 🔀 1. Các lệnh Git đã sử dụng
+
+| Lệnh                                | Mục đích                                  | Ghi chú                                       |
+| ----------------------------------- | ----------------------------------------- | --------------------------------------------- |
+| `git status`                        | Kiểm tra trạng thái thư mục làm việc      | Xem có file nào thay đổi chưa commit          |
+| `git add .`                         | Thêm toàn bộ file vào stage               | Cẩn thận tránh thêm file rác (như `~$*.docx`) |
+| `git commit -m "phân tích nhóm từ"` | Ghi lại snapshot với nội dung cụ thể      | Nên viết message rõ ràng, ngắn gọn            |
+| `git push origin main`              | Đẩy commit lên GitHub                     | Đảm bảo đã pull trước đó để tránh xung đột    |
+| `git pull origin main --rebase`     | Kéo code mới nhất, giữ lịch sử commit gọn | Tốt cho làm việc nhóm                         |
+| `git log` *(nên dùng thêm)*         | Xem lịch sử commit                        | Gợi ý thêm để kiểm soát phiên bản             |
+
+---
+
+### 📦 2. Cấu trúc thư mục và file bạn đã làm việc
+
+| Thư mục/File                 | Mục đích                                     |
+| ---------------------------- | -------------------------------------------- |
+| `R/00_setup.R`               | Cài đặt ban đầu: thư viện, theme, option     |
+| `R/03_sentiment_analysis.R`  | Phân tích cảm xúc từ văn bản Jules Verne     |
+| `README.md`                  | Tóm tắt nội dung repo – dùng trên GitHub     |
+| `review_around_the_world.md` | Review nội dung văn bản – markdown định dạng |
+| `80_quato_words_output.qmd`  | File Quarto chính để xuất ra Word            |
+| `80_quato_words_output.docx` | Bản Word xuất ra từ Quarto (officedown)      |
+
+---
+
+### 📾️ 3. Những điểm cần rút kinh nghiệm
+
+| Vấn đề                                           | Cách cải thiện                                                                |
+| ------------------------------------------------ | ----------------------------------------------------------------------------- |
+| File rác `~$_quato_words_output.docx` bị add vào | Dùng `.gitignore` để loại trừ hoặc `git reset HEAD` trước khi commit          |
+| Dung lượng file Word tăng nhiều                  | Kiểm tra biểu đồ hoặc ảnh nhúng có cần thiết không                            |
+| Nên comment rõ trong R script                    | Gợi ý thêm `# 📌 Bước 1: ...`, `# ✅ Hoàn tất phân tích ...`                   |
+| README.md dài dòng                               | Nên chia mục, có TOC hoặc link tới từng phần (sử dụng `[[toc]]` trong Quarto) |
+
+---
+
+> ✅ Bạn có thể dùng tài liệu này như một phần của checklist hằng ngày khi làm việc với Git + Quarto + R.
