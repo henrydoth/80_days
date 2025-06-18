@@ -29,9 +29,8 @@ source(here::here("R", "packages.R"))
 source(here::here("R", "00_setup.R"))
 source(here::here("R", "01_load_clean_text.R"))
 source(here::here("R", "02_tidy_analysis.R"))
+source(here::here("R", "03_sentiment_analysis.R"))
 source(here::here("R", "04_chapter_wise_analysis.R"))
-
-
 
 ```
 
@@ -281,7 +280,10 @@ Ngoài ra, nhóm không gian gồm các từ như “london” (65), “india”
 
 Phương pháp phân tích từ khóa định lượng như trên là một phần trong hướng tiếp cận "văn học từ xa" (distant reading), vốn sử dụng dữ liệu và thuật toán để mô hình hóa văn bản văn học [@jockers2014text]. Việc phân nhóm từ theo chủ đề giúp khám phá các tầng ý nghĩa ẩn sâu bên dưới cấu trúc ngôn ngữ, qua đó hỗ trợ giảng dạy và nghiên cứu hiệu quả hơn trong bối cảnh văn học số hiện nay [@grimmer2013text].
 
+## Bàn luận về số từ các chương 
+Trong bài phân tích từ vựng của các chương, Chapter 2 nổi lên như chương “ít nổi bật” nhất bất chấp việc có bốn từ thường xuyên được sử dụng — bao gồm passepartout (12 lần), fogg (8 lần), house và past (5 lần mỗi từ). So với các chương như Chapter 3 hoặc 4, nơi có sự lặp lại rõ rệt của các từ chủ đạo (như fogg, passepartout), Chapter 2 thể hiện mức độ phân tán từ khóa cao, dấu hiệu cho thấy nội dung không tập trung vào một chủ đề rõ ràng1.
 
+Theo lý thuyết xử lý văn bản, tần suất từ khóa cao (như các thuật ngữ chủ đề hoặc nhân vật trung tâm) phản ánh trọng tâm nội dung, trong khi tần suất thấp hoặc phân bố đồng đều cho thấy nội dung còn lan man[@Kaushik2023]. Chẳng hạn, TF-IDF — phương pháp đánh giá tầm quan trọng ngôn ngữ trong văn bản — ưu tiên các từ có TF cao trong một tài liệu nhưng hiếm gặp trong toàn tập hợp, từ đó nhấn mạnh nội dung độc đáo của tài liệu đó[@Geeksforgeeks2025]. Với Chapter 2, việc xuất hiện thấp của từ khóa chủ chốt làm giảm độ “đặc trưng” theo chuẩn TF-IDF, dẫn đến đánh giá chương kém ấn tượng hơn xét về phương diện từ vựng.
 
 ::: {custom-style="CAN GIUA DAM 14 ONE"}
 TÀI LIỆU THAM KHẢO
