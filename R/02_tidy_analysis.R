@@ -56,3 +56,52 @@ ban_luan_top_words <- glue::glue(
   "các hành động và môi trường xung quanh nhân vật chính. Điều này hoàn toàn phù hợp với đặc trưng thể loại ",
   "phiêu lưu và phản ánh cách xây dựng không gian – thời gian trong tiểu thuyết của Jules Verne."
 )
+
+# 📦 Phân tích từ khóa theo nhóm chủ đề
+
+# 🎯 Định nghĩa nhóm từ khóa theo ngữ nghĩa
+tu_khoa_chia_nhom <- tidy_words %>%
+  dplyr::filter(word %in% c(
+    # Nhân vật chính
+    "fogg", "passepartout", "fix", "aouda", "phileas",
+    # Chủ đề hành động & kỹ thuật
+    "train", "steam", "ship", "master", "passport",
+    # Không gian – thời gian
+    "time", "day", "journey", "mile", "london", "india", "america"
+  )) %>%
+  dplyr::mutate(chu_de = dplyr::case_when(
+    word %in% c("fogg", "passepartout", "fix", "aouda", "phileas") ~ "Nhân vật",
+    word %in% c("train", "steam", "ship", "master", "passport") ~ "Kỹ thuật – Hành động",
+    word %in% c("time", "day", "journey", "mile") ~ "Thời gian",
+    word %in% c("london", "india", "america") ~ "Không gian",
+    TRUE ~ "Khác"
+  ))
+
+# 📋 Bảng từ theo chủ đề
+bang_tu_khoa_nhom <- flextable::flextable(
+  tu_khoa_chia_nhom %>%
+    dplyr::group_by(chu_de, word) %>%
+    dplyr::summarise(n = sum(n), .groups = "drop") %>%
+    dplyr::arrange(desc(n))
+)
+
+# 📊 Biểu đồ từ khóa theo chủ đề
+bieu_do_tu_khoa_nhom <- tu_khoa_chia_nhom %>%
+  dplyr::group_by(chu_de, word) %>%
+  dplyr::summarise(n = sum(n), .groups = "drop") %>%
+  ggplot(aes(x = reorder(word, n), y = n, fill = chu_de)) +
+  geom_col(show.legend = TRUE) +
+  coord_flip() +
+  labs(
+    title = "Tần suất từ khóa theo chủ đề",
+    x = "Từ khóa", y = "Tần suất"
+  ) +
+  theme_minimal(base_family = "Times New Roman")
+
+# 🧠 Nhận xét tự động
+nhan_xet_tu_khoa_nhom <- glue::glue(
+  "Từ khóa xuất hiện nhiều nhất thuộc nhóm '{tu_khoa_chia_nhom$chu_de[1]}' là ",
+  "'{tu_khoa_chia_nhom$word[1]}' với {tu_khoa_chia_nhom$n[1]} lần. ",
+  "Các nhóm từ như 'Nhân vật', 'Kỹ thuật – Hành động' và 'Thời gian' phản ánh rõ cấu trúc ",
+  "và nội dung xoay quanh hành trình vượt thời gian, không gian trong tác phẩm."
+)

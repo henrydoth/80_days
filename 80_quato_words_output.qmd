@@ -181,6 +181,22 @@ bieu_do_top_words
 ```
 ##### `r nhan_xet_bieu_do_top_words`
 
+### Từ khóa theo nhóm chủ đề 
+#### Bảng từ khóa
+```{r}
+#| echo: false
+bang_tu_khoa_nhom
+```
+#### Biểu đồ từ khóa
+```{r}
+#| echo: false
+bieu_do_tu_khoa_nhom
+```
+
+##### `r nhan_xet_tu_khoa_nhom`
+
+
+
 ## 🧠 Phân tích cảm xúc trong văn bản
 
 ### 📋 Bảng từ mang sắc thái cảm xúc
@@ -226,6 +242,16 @@ Một nghiên cứu tương tự trên văn học cổ điển tiếng Anh cũng
 
 Tóm lại, phân tích cảm xúc cho thấy Around the World in 80 Days là một tác phẩm tích cực, lạc quan và đầy cảm hứng. Điều này không chỉ giúp người đọc hiện đại hiểu hơn về phong cách văn học cổ điển, mà còn mở ra hướng ứng dụng mới cho phân tích văn học bằng công cụ số trong nghiên cứu ngôn ngữ và văn hóa.
 
+## Bàn luận từ khóa theo chủ đề 
+Phân tích tần suất từ khóa theo nhóm chủ đề cho thấy cấu trúc nội dung của Around the World in 80 Days được tổ chức xoay quanh ba yếu tố chính: nhân vật, kỹ thuật – hành động, và thời gian. Trong nhóm nhân vật, từ “fogg” xuất hiện nổi bật nhất với 525 lần, kế đến là “passepartout” (370), “fix” (230), và “phileas” (208). Đây là những nhân vật trung tâm, phản ánh sự chú trọng của Jules Verne vào tuyến nhân vật xuyên suốt hành trình toàn cầu.
+
+Nhóm kỹ thuật – hành động bao gồm các từ như “train” (117), “master” (93), “steam” (24), “passport” (20) và “ship” (4). Sự hiện diện của các từ này cho thấy rõ tính chất hành động hóa và công nghệ hóa của tác phẩm, một đặc trưng tiêu biểu của văn học khoa học giả tưởng cuối thế kỷ XIX [@evans2013verne]. Các phương tiện di chuyển như tàu lửa, tàu thủy, hay các yếu tố quản trị hành trình như hộ chiếu không chỉ là chi tiết cốt truyện, mà còn phản ánh tiến bộ kỹ thuật và tốc độ hiện đại hóa của xã hội đương thời.
+
+Về yếu tố thời gian, các từ như “time” (115), “day” (75), “journey” (44) và “mile” (9) xuất hiện thường xuyên, phản ánh trọng tâm cốt truyện đặt vào cuộc chạy đua với thời gian. Áp lực thời gian chính là động lực thúc đẩy mọi diễn biến và xung đột trong tác phẩm, tạo nên tính hấp dẫn đặc trưng của thể loại phiêu lưu [@moretti2005graphs].
+
+Ngoài ra, nhóm không gian gồm các từ như “london” (65), “india” (35), và “america” (13) góp phần tái hiện bối cảnh địa lý toàn cầu. Những địa danh này không chỉ đơn thuần là điểm đến, mà còn thể hiện cách Verne kết hợp địa lý và văn hóa để xây dựng bản đồ tưởng tượng về thế giới trong thời đại thuộc địa [@underwood2019distant].
+
+Phương pháp phân tích từ khóa định lượng như trên là một phần trong hướng tiếp cận "văn học từ xa" (distant reading), vốn sử dụng dữ liệu và thuật toán để mô hình hóa văn bản văn học [@jockers2014text]. Việc phân nhóm từ theo chủ đề giúp khám phá các tầng ý nghĩa ẩn sâu bên dưới cấu trúc ngôn ngữ, qua đó hỗ trợ giảng dạy và nghiên cứu hiệu quả hơn trong bối cảnh văn học số hiện nay [@grimmer2013text].
 
 
 
