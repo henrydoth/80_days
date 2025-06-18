@@ -1,7 +1,8 @@
+
 # 📄 01_load_clean_text.R – Tải và làm sạch văn bản Jules Verne
 
 # 🎯 Nạp gói cần thiết
-pacman::p_load(gutenbergr, dplyr, stringr, readr, here)
+pacman::p_load(gutenbergr, dplyr, stringr, readr, here, roman)  # thêm 'roman'
 
 # 📥 Tải văn bản từ Gutenberg (ID 103)
 raw_text <- gutenberg_download(103, mirror = "http://mirrors.xmission.com/gutenberg/")
@@ -16,3 +17,30 @@ clean_text <- raw_text %>%
 
 # 💾 Ghi ra file CSV trong thư mục /data
 write_csv(clean_text, here("data", "around_the_world_clean.csv"))
+
+# 📥 Đọc văn bản làm sạch
+clean_text <- read_csv(here("data", "around_the_world_clean.csv"))
+
+# 🧠 Nhận diện dòng là tiêu đề chương (ví dụ: CHAPTER III.)
+chaptered_text <- clean_text %>%
+  mutate(
+    is_chapter = str_detect(text, regex("^CHAPTER\\s+[IVXLCDM]+\\.?$", ignore_case = TRUE)),
+    chapter_roman = if_else(
+      is_chapter,
+      text %>%
+        str_extract(regex("^CHAPTER\\s+([IVXLCDM]+)", ignore_case = TRUE)) %>%
+        str_remove("CHAPTER\\s+") %>%
+        toupper(),
+      NA_character_
+    ),
+    chapter_number = as.numeric(as.roman(chapter_roman))  # 🔢 Chuyển sang số thường
+  ) %>%
+  mutate(chapter_id = cumsum(!is.na(chapter_number))) %>%
+  filter(chapter_id > 0) %>%
+  group_by(chapter_id) %>%
+  mutate(chapter = paste0("Chapter ", first(chapter_number))) %>%
+  ungroup() %>%
+  select(chapter, text)
+
+# 💾 Ghi kết quả ra file CSV
+write_csv(chaptered_text, here("data", "around_world_by_chapter.csv"))
