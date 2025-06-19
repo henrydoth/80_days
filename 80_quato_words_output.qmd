@@ -31,6 +31,7 @@ source(here::here("R", "01_load_clean_text.R"))
 source(here::here("R", "02_tidy_analysis.R"))
 source(here::here("R", "03_sentiment_analysis.R"))
 source(here::here("R", "04_chapter_wise_analysis.R"))
+source(here::here("R", "05_emotion_timeline.R"))
 
 ```
 
@@ -229,7 +230,20 @@ ft_top_words
 plot_top_words
 ```
 
+### 📈 Timeline cảm xúc theo chương
 
+```{r}
+bang_timeline_cx  
+```
+##### `r nhan_xet_bang_timeline`
+
+
+
+
+```{r}
+bieu_do_timeline_cx  
+```
+##### `r nhan_xet_timeline`
 
 
 
@@ -284,6 +298,19 @@ Phương pháp phân tích từ khóa định lượng như trên là một ph�
 Trong bài phân tích từ vựng của các chương, Chapter 2 nổi lên như chương “ít nổi bật” nhất bất chấp việc có bốn từ thường xuyên được sử dụng — bao gồm passepartout (12 lần), fogg (8 lần), house và past (5 lần mỗi từ). So với các chương như Chapter 3 hoặc 4, nơi có sự lặp lại rõ rệt của các từ chủ đạo (như fogg, passepartout), Chapter 2 thể hiện mức độ phân tán từ khóa cao, dấu hiệu cho thấy nội dung không tập trung vào một chủ đề rõ ràng1.
 
 Theo lý thuyết xử lý văn bản, tần suất từ khóa cao (như các thuật ngữ chủ đề hoặc nhân vật trung tâm) phản ánh trọng tâm nội dung, trong khi tần suất thấp hoặc phân bố đồng đều cho thấy nội dung còn lan man[@Kaushik2023]. Chẳng hạn, TF-IDF — phương pháp đánh giá tầm quan trọng ngôn ngữ trong văn bản — ưu tiên các từ có TF cao trong một tài liệu nhưng hiếm gặp trong toàn tập hợp, từ đó nhấn mạnh nội dung độc đáo của tài liệu đó[@Geeksforgeeks2025]. Với Chapter 2, việc xuất hiện thấp của từ khóa chủ chốt làm giảm độ “đặc trưng” theo chuẩn TF-IDF, dẫn đến đánh giá chương kém ấn tượng hơn xét về phương diện từ vựng.
+
+## Diễn biến cảm xúc trong hành trình của tác phẩm
+Phân tích cảm xúc từng chương của tác phẩm Around the World in Eighty Days dựa trên lexicon bing cho thấy mức độ dao động rõ rệt về cảm xúc xuyên suốt hành trình của nhân vật chính. Trung bình điểm cảm xúc qua các chương là 0,05, cho thấy văn bản có xu hướng cân bằng nhẹ về mặt cảm xúc, không nghiêng hẳn về tích cực hay tiêu cực.
+
+Đáng chú ý, chương 14 có điểm cảm xúc trung bình cao nhất (0,47), phản ánh nội dung chương này mang tính chất tích cực, có thể liên quan đến những diễn tiến thuận lợi trong cuộc hành trình (như đạt được mục tiêu trung gian hoặc vượt qua trở ngại lớn). Trong khi đó, chương 35 có điểm cảm xúc thấp nhất (-0,71) – cho thấy đỉnh điểm tiêu cực, có thể là thời điểm thất bại hoặc khủng hoảng về thời gian. Mô hình dao động này phản ánh cấu trúc điển hình của tiểu thuyết phiêu lưu, nơi cảm xúc của nhân vật và người đọc được điều tiết theo từng biến cố [@jockers2017syuzhet].
+
+Biểu đồ timeline cảm xúc đã minh hoạ điều này rõ nét: đường biểu diễn dao động mạnh quanh mức 0, với các đỉnh tích cực và tiêu cực xen kẽ. Các chương từ 10 đến 13 thể hiện xu hướng giảm cảm xúc, trong khi chương 14–16 lại có dấu hiệu hồi phục rõ rệt.
+
+Việc sử dụng phân tích cảm xúc trong nghiên cứu văn học không chỉ giúp hiểu rõ hơn về nhịp độ cảm xúc và cấu trúc truyện, mà còn mở ra tiềm năng ứng dụng trong giáo dục và truyền thông. Các nghiên cứu gần đây đã cho thấy hiệu quả của kỹ thuật tidytext trong việc phân tích văn bản tiếng Anh và ngữ cảnh văn học [@Kaushik2023; @Geeksforgeeks2025]. Bên cạnh đó, việc tích hợp dữ liệu cảm xúc vào hệ thống trực quan như Shiny hoặc dashboard giảng dạy có thể nâng cao mức độ tương tác của học sinh, sinh viên với văn học cổ điển [@he2021teaching].
+
+Ngoài ra, sự kết hợp giữa công cụ phân tích cảm xúc và trực quan hoá dữ liệu cho phép người học nắm bắt nhanh các cao trào nội dung và nhận diện các chương “nút thắt” hoặc “giải toả”. Đây là hướng nghiên cứu liên ngành giàu tiềm năng, đặc biệt khi được triển khai trong môi trường học tập kỹ thuật số.
+
+Tóm lại, biểu đồ timeline cảm xúc không chỉ là một công cụ trực quan, mà còn là phương pháp tiếp cận hiện đại giúp khám phá chiều sâu cảm xúc trong văn học cổ điển, góp phần thúc đẩy đổi mới trong giảng dạy và nghiên cứu văn học bằng công nghệ dữ liệu.
 
 ::: {custom-style="CAN GIUA DAM 14 ONE"}
 TÀI LIỆU THAM KHẢO
