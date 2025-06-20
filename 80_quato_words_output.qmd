@@ -311,6 +311,7 @@ Việc sử dụng phân tích cảm xúc trong nghiên cứu văn học không 
 Ngoài ra, sự kết hợp giữa công cụ phân tích cảm xúc và trực quan hoá dữ liệu cho phép người học nắm bắt nhanh các cao trào nội dung và nhận diện các chương “nút thắt” hoặc “giải toả”. Đây là hướng nghiên cứu liên ngành giàu tiềm năng, đặc biệt khi được triển khai trong môi trường học tập kỹ thuật số.
 
 Tóm lại, biểu đồ timeline cảm xúc không chỉ là một công cụ trực quan, mà còn là phương pháp tiếp cận hiện đại giúp khám phá chiều sâu cảm xúc trong văn học cổ điển, góp phần thúc đẩy đổi mới trong giảng dạy và nghiên cứu văn học bằng công nghệ dữ liệu.
+update 0620 dytd
 
 ::: {custom-style="CAN GIUA DAM 14 ONE"}
 TÀI LIỆU THAM KHẢO
